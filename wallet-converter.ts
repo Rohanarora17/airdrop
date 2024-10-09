@@ -1,13 +1,15 @@
 import bs58 from "bs58";
-import prompt from "prompt-sync";
 
+import prompt from 'prompt-sync';
+ 
 const promptSync = prompt();
+
 
 
 function base58ToWallet() {
   const base58 = promptSync("Enter your base58 private key: ");
   try {
-    const wallet = bs58.decode("2xzf1pxMGXRYbSKiHRFuNKHa6DhmkhhWJ1nfEVkbPnaGx3LikixxZJkUixPCGXtAameGu6vjKNmQUVVWhS6ssAhi");
+    const wallet = bs58.decode(base58);
     console.log("Wallet byte array:", Array.from(wallet));
   } catch (error) {
     console.error("Invalid base58 string");
